@@ -166,6 +166,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -174,9 +175,14 @@
     <Compile Include="Migrations\201707151437468_Initial.Designer.cs">
       <DependentUpon>201707151437468_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707291722478_IncluirUsuario.cs" />
+    <Compile Include="Migrations\201707291722478_IncluirUsuario.Designer.cs">
+      <DependentUpon>201707291722478_IncluirUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\APIAcmeProdutosContext.cs" />
     <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -240,6 +246,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201707151437468_Initial.resx">
       <DependentUpon>201707151437468_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707291722478_IncluirUsuario.resx">
+      <DependentUpon>201707291722478_IncluirUsuario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

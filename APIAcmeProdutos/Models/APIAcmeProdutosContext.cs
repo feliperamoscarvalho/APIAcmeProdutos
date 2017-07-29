@@ -20,5 +20,7 @@ namespace APIAcmeProdutos.Models
         }
 
         public System.Data.Entity.DbSet<APIAcmeProdutos.Models.Produto> Produtos { get; set; }
+
+        public System.Data.Entity.DbSet<APIAcmeProdutos.Models.Usuario> Usuarios { get; set; }
     }
 }

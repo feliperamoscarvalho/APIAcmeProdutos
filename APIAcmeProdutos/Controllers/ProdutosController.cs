@@ -9,22 +9,12 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using APIAcmeProdutos.Models;
-using System.Net.Http.Headers;
-using Newtonsoft.Json;
-using System.Text;
-using Microsoft.Azure.NotificationHubs;
 
 namespace APIAcmeProdutos.Controllers
 {
     public class ProdutosController : ApiController
     {
         private APIAcmeProdutosContext db = new APIAcmeProdutosContext();
-
-        //const string FCM_ENDERECO = "https://fcm.googleapis.com/fcm";
-        //const string FCM_SERVER_KEY = "AAAAti0xGs4:APA91bFfy3RVcnkPfcMsvYbLa7gPjeAiYvt4-4MsOpqb4iAth1l6WSvRyel1W3B9059NCaP9Z7XTkhB3cg1hFlBviDearPEzfOTRCOQTt8RFmLqCo92-HTI8PKPrV9svEySpQZnpzEtH";
-
-        const string hubName = "HubAcme";
-        const string hubString = "Endpoint=sb://hubacmenamespace.servicebus.windows.net/;SharedAccessKeyName=DefaultFullSharedAccessSignature;SharedAccessKey=BdYZz2ZusZ208Q5GXTQXbBh3DfHBeYAA30VhSWXYVGc=";
 
         // GET: api/Produtos
         public IQueryable<Produto> GetProdutos()
@@ -92,21 +82,7 @@ namespace APIAcmeProdutos.Controllers
             db.Produtos.Add(produto);
             db.SaveChanges();
 
-            SendPush();
-
             return CreatedAtRoute("DefaultApi", new { id = produto.ID }, produto);
-        }
-
-        public void SendPush ()
-        {
-            var hub = NotificationHubClient.CreateClientFromConnectionString(
-                connectionString: hubString,
-                notificationHubPath: hubName
-                );
-
-            var json = "{\"data\":{\"message\":\"Notification via BackEnd\"}}";
-
-            hub.SendGcmNativeNotificationAsync(json);
         }
 
         // DELETE: api/Produtos/5
